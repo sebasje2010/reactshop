@@ -1,15 +1,13 @@
-const { plugins } = require('@babel/preset-env/lib/plugins-compat-data');
-const loader = require('html-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path= require('path');
 const MiniCssExtractPlugin=require('mini-css-extract-plugin')
+const path= require('path');
 
 module.exports={
     entry:'./src/index.js',
     output:{
-        path: path.resolve(__dirname,'dist'),
+        path: path.resolve(__dirname,'build'),
         filename:'bundle.js',
-        publicPath:'/dist/'
+        publicPath:'/'
     },
     mode: 'development',
     resolve:{
