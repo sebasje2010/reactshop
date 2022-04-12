@@ -2,11 +2,14 @@
   "name": "reactshop",
   "version": "1.0.0",
   "description": "E-commerce developed in React",
+  "homepage": "https://sebasje2010.github.io/reactshop",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --open",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
     },
   "keywords": [
     "react",
@@ -38,6 +41,5 @@
     "sass": "^1.49.11",
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1"
-  },
-  "homepage": "https://sebasje2010.github.io/reactshop"
+  }
 }
