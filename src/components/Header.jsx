@@ -2,21 +2,17 @@ import React, {useState,useContext} from 'react';
 import '@styles/Header.scss'
 import Menu from './Menu';
 import MyOrder from '../containers/MyOrder'
+import MobileMenu from './MobileMenu';
 import menu from '@icons/icon_menu.svg'
 import logo from '@logos/logo_yard_sale.svg'
 import AppContext from '../context/AppContext';
 import shoppingCart from '@icons/icon_shopping_cart.svg'
 
 const Header=()=>{
-    const [toggle,setToggle]=useState(false);
-    const[toggleOrders,setToggleOrders]=useState(false)
-    const {state}=useContext(AppContext)
-    const handleToggle=()=>{
-        setToggle(!toggle)
-    }
+    const { state, toggleOrder, toggleMenu, toggleMobileMenu  } = useContext(AppContext)
     return(
         <nav>
-            <img src={menu} alt="menu" className="menu" />
+            <img src={menu} alt="menu" className="menu" onClick={()=>toggleMobileMenu()}/>
             <div className="navbar-left">
                 <img src={logo} alt="logo" className="nav-logo" />
                 <ul>
@@ -44,19 +40,20 @@ const Header=()=>{
                 <ul>
                     <li 
                     className="navbar-email" 
-                    onClick={handleToggle}>
-                        platzi@example.com
+                    onClick={()=>toggleMenu()}>
+                        email@example.com
                     </li>
                     <li 
                     className="navbar-shopping-cart" 
-                    onClick={()=>setToggleOrders(!toggleOrders)}>
+                    onClick={()=>toggleOrder()}>
                         <img src={shoppingCart} alt="shopping cart" />
                         {state.cart.length>0? <div> {state.cart.length}</div> :null}
                     </li>
                 </ul>
             </div>
-            {toggle&&<Menu/>}
-            {toggleOrders&&<MyOrder/>}
+            {state.menuIsOpen && <Menu />}
+			{state.orderIsOpen && <MyOrder />}
+            {state.mobileMenuIsOpen && <MobileMenu />}
         </nav>
     )
 }

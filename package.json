@@ -1,6 +1,5 @@
 {
   "name": "reactshop",
-  "homepage": "https://sebasje2010.github.io/reactshop",
   "version": "1.0.0",
   "description": "E-commerce developed in React",
   "main": "src/index.js",
