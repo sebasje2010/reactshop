@@ -40,5 +40,6 @@
     "sass": "^1.49.11",
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1"
-  }
+  },
+  "homepage": "https://sebasje2010.github.io/reactshop"
 }
